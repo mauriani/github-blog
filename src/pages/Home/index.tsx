@@ -9,7 +9,7 @@ import api from "../../services";
 
 import { Container, Content } from "./styles";
 
-interface IPost {
+interface IPostHome {
   id: number;
   created_at: string;
   body: string;
@@ -17,14 +17,14 @@ interface IPost {
   number: number;
 }
 export function Home() {
-  const [posts, setPost] = useState<IPost[]>([]);
+  const [posts, setPost] = useState<IPostHome[]>([]);
 
   async function fetchPosts() {
     const response = await api.get(
       "repos/mauriani/reactjs-github-blog-challenge/issues"
     );
 
-    const newItem = response.data.map((elem: IPost) => ({
+    const newItem = response.data.map((elem: IPostHome) => ({
       id: elem.id,
       created_at: formatDistance(new Date(elem.created_at), Date.now(), {
         addSuffix: true,

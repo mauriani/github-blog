@@ -26,7 +26,7 @@ interface LocationParams {
   number: number;
 }
 
-interface IPost {
+interface IPostDetails {
   id: number;
   body: string;
   title: string;
@@ -39,7 +39,7 @@ export function PostDetails() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [post, setPost] = useState<IPost>({} as IPost);
+  const [post, setPost] = useState<IPostDetails>({} as IPostDetails);
   const state = location.state as LocationParams;
   const { number } = state;
 
