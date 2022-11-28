@@ -1,67 +1,45 @@
+import { useNavigate } from "react-router-dom";
 import { PostContainer } from "./styles";
 
-export function Post() {
+interface IPost {
+  id: number;
+  created_at: string;
+  body: string;
+  title: string;
+  number: number;
+}
+
+interface IProps {
+  data: IPost[];
+}
+
+export function Post({ data }: IProps) {
+  const navigate = useNavigate();
+
+  function handleNavigateToPost(numberPost: number) {
+    console.log(numberPost);
+    navigate("/posts", {
+      state: {
+        number: numberPost,
+      },
+    });
+  }
   return (
     <PostContainer>
-      <button type="button">
-        <div>
-          <h1>
-            JavaScript data types<br></br>and data structures
-          </h1>
-          <span>Há 1 dia</span>
-        </div>
+      {data.map((item) => (
+        <button
+          type="button"
+          key={item.id}
+          onClick={() => handleNavigateToPost(item.number)}
+        >
+          <div>
+            <h1>{item.title}</h1>
+            <span>{item.created_at}</span>
+          </div>
 
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </button>
-
-      <button type="button">
-        <div>
-          <h1>
-            JavaScript data types<br></br>and data structures
-          </h1>
-          <span>Há 1 dia</span>
-        </div>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </button>
-
-      <button type="button">
-        <div>
-          <h1>
-            JavaScript data types<br></br>and data structures
-          </h1>
-          <span>Há 1 dia</span>
-        </div>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </button>
-
-      <button type="button">
-        <div>
-          <h1>
-            JavaScript data types<br></br>and data structures
-          </h1>
-          <span>Há 1 dia</span>
-        </div>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </button>
+          <p>{item.body}</p>
+        </button>
+      ))}
     </PostContainer>
   );
 }

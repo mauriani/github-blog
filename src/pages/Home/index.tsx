@@ -14,9 +14,10 @@ interface IPost {
   created_at: string;
   body: string;
   title: string;
+  number: number;
 }
 export function Home() {
-  const [post, setPost] = useState([]);
+  const [posts, setPost] = useState<IPost[]>([]);
 
   async function fetchPosts() {
     const response = await api.get(
@@ -29,14 +30,13 @@ export function Home() {
         addSuffix: true,
         locale: ptBR,
       }),
-      body: `${elem.body.slice(0, 25)}...`,
+      body: `${elem.body.slice(0, 100)}...`,
       title: elem.title,
+      number: elem.number,
     }));
 
     setPost(newItem);
   }
-
-  console.log(post);
 
   useEffect(() => {
     fetchPosts();
@@ -56,7 +56,7 @@ export function Home() {
           <input placeholder="Buscar conteúdo" />
         </div>
 
-        <Post />
+        <Post data={posts} />
       </Content>
     </Container>
   );
