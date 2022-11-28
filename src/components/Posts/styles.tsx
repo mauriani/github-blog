@@ -46,4 +46,8 @@ export const PostContainer = styled.footer`
       text-align: left;
     }
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
