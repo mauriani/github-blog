@@ -21,7 +21,7 @@ export function Summary() {
   async function getData() {
     try {
       setloading(true);
-      const response = await api.get("mauriani");
+      const response = await api.get("users/mauriani");
 
       const { login, name, avatar_url, bio, followers, html_url, company } =
         response.data;
@@ -52,7 +52,6 @@ export function Summary() {
     getData();
   }, []);
 
-  console.log("profile", profile);
   return (
     <>
       {loading == true ? null : (

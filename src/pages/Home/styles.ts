@@ -37,6 +37,11 @@ export const Content = styled.div`
     border-radius: 6px;
 
     background-color: ${(props) => props.theme["base-input"]};
+    border: 1px solid transparent;
+
+    :hover {
+      border: 1px solid ${(props) => props.theme["blue"]};
+    }
 
     input {
       width: 100%;

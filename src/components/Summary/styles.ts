@@ -72,7 +72,10 @@ export const SummaryBio = styled.div`
       align-items: center;
       background-color: transparent;
       border: 0;
-      text-decoration: none;
+
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-color: transparent;
 
       font-weight: 700;
       font-size: 0.75rem;
@@ -81,9 +84,10 @@ export const SummaryBio = styled.div`
 
       width: 67px;
       height: 19px;
+      cursor: pointer;
 
       :hover {
-        color: ${(props) => props.theme["blue"]};
+        border-color: ${(props) => props.theme["blue"]};
         border-bottom-style: solid;
         border-bottom-width: thin;
       }
