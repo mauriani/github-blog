@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import gfm from "remark-gfm";
+
 import { PostContainer } from "./styles";
 
 interface IPost {

@@ -29,7 +29,7 @@ export const Content = styled.div`
     }
   }
 
-  > div {
+  form {
     width: 54rem;
     height: 3.125rem;
     margin-top: 12px;
@@ -60,7 +60,7 @@ export const Content = styled.div`
       padding: 0 1rem;
     }
 
-    div {
+    form {
       width: 100%;
       padding: 1rem;
       margin-bottom: 1rem;
