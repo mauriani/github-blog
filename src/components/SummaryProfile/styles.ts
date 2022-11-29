@@ -37,13 +37,6 @@ export const SummaryCard = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
-
-    div {
-      img {
-        width: 40%;
-        height: 50%;
-      }
-    }
   }
 `;
 
@@ -134,18 +127,9 @@ export const SummaryBio = styled.div`
     width: 100%;
     height: 100%;
 
-    div {
-      display: flex;
-      flex-direction: column;
-    }
-
     footer {
       display: flex;
-      flex-direction: column;
-
-      > button {
-        height: auto;
-      }
+      flex-wrap: wrap;
     }
   }
 `;

@@ -45,6 +45,13 @@ export const PostContainer = styled.footer`
       color: ${(props) => props.theme["base-text"]};
       text-align: left;
     }
+
+    h1 {
+      font-weight: 400;
+      font-size: 1rem;
+      color: ${(props) => props.theme["base-text"]};
+      text-align: left;
+    }
   }
 
   @media (max-width: 768px) {

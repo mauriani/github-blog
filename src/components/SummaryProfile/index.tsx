@@ -14,7 +14,7 @@ interface IPropsSummary {
   company: string;
 }
 
-export function Summary() {
+export function SummaryProfile() {
   const [loading, setloading] = useState(true);
   const [profile, setProfile] = useState<IPropsSummary>({} as IPropsSummary);
 

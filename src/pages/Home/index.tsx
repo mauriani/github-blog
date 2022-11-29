@@ -3,7 +3,7 @@ import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Header } from "../../components/Header";
 import { Post } from "../../components/Posts";
-import { Summary } from "../../components/Summary";
+import { SummaryProfile } from "../../components/SummaryProfile";
 
 import api from "../../services";
 
@@ -41,15 +41,16 @@ export function Home() {
   useEffect(() => {
     fetchPosts();
   }, []);
+
   return (
     <Container>
       <Header />
-      <Summary />
+      <SummaryProfile />
 
       <Content>
         <header>
           <p>Publicações</p>
-          <span>6 publicações</span>
+          <span>{posts.length} publicações</span>
         </header>
 
         <div>

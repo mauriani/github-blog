@@ -9,6 +9,7 @@ export const SummaryContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 1rem;
+    width: 100%;
   }
 `;
 
@@ -16,7 +17,7 @@ export const SummaryCard = styled.div`
   background-color: ${(props) => props.theme["base-profile"]};
 
   width: 54rem;
-  height: 10.5rem;
+  height: 11rem;
 
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
@@ -95,8 +96,10 @@ export const SummaryCard = styled.div`
     width: 100%;
     height: auto;
 
-    padding-left: 1rem;
-    padding-right: 1rem;
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 `;
 
@@ -111,12 +114,56 @@ export const PostParagraph = styled.footer`
 
   padding: 40px 32px;
 
+  h1 {
+    margin-bottom: 8px;
+  }
+
   p {
     font-family: "Nunito";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 160%;
+    margin-bottom: 8px;
     color: ${(props) => props.theme["base-text"]};
+  }
+
+  code {
+    display: block;
+    white-space: pre-wrap;
+    background: ${(props) => props.theme["base-post"]};
+    border-radius: 2px;
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 24px;
+
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 160%;
+  }
+
+  ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: disc outside none;
+  }
+
+  ul li {
+    margin-left: 2em;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+
+  a {
+    color: ${(props) => props.theme["blue"]};
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
   }
 `;

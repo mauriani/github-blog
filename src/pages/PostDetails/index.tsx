@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
 import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import {
@@ -33,6 +34,7 @@ interface IPostDetails {
   login: string;
   created_at: string;
   comments: number;
+  html_url: string;
 }
 
 export function PostDetails() {
@@ -48,8 +50,9 @@ export function PostDetails() {
       `repos/mauriani/reactjs-github-blog-challenge/issues/${number}`
     );
 
-    const { title, id, body, created_at, user, comments } = response.data;
-    console.log(body);
+    const { title, id, body, created_at, user, comments, html_url } =
+      response.data;
+
     const newItem = {
       id,
       title,
@@ -60,6 +63,7 @@ export function PostDetails() {
         locale: ptBR,
       }),
       comments,
+      html_url,
     };
 
     setPost(newItem);
@@ -69,9 +73,14 @@ export function PostDetails() {
     navigate("/");
   }
 
+  function handleNavigateToPostGit() {
+    window.location.replace(`${post.html_url}`);
+  }
+
   useEffect(() => {
     getOnePost();
   }, []);
+
   return (
     <Container>
       <Header />
@@ -83,7 +92,7 @@ export function PostDetails() {
               voltar
             </button>
 
-            <button>
+            <button onClick={handleNavigateToPostGit}>
               ver no github
               <Export size={15} style={{ marginLeft: 8 }} />
             </button>
@@ -110,7 +119,11 @@ export function PostDetails() {
 
       <ContentPost>
         <PostParagraph>
-          <ReactMarkdown children={post.body} remarkPlugins={[remarkGfm]} />
+          <ReactMarkdown
+            children={post.body}
+            linkTarget={"_blank"}
+            remarkPlugins={[remarkGfm]}
+          />
         </PostParagraph>
       </ContentPost>
     </Container>

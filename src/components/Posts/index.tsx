@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import gfm from "remark-gfm";
 import { PostContainer } from "./styles";
 
 interface IPost {
@@ -17,7 +20,6 @@ export function Post({ data }: IProps) {
   const navigate = useNavigate();
 
   function handleNavigateToPost(numberPost: number) {
-    console.log(numberPost);
     navigate("/posts", {
       state: {
         number: numberPost,
@@ -37,7 +39,11 @@ export function Post({ data }: IProps) {
             <span>{item.created_at}</span>
           </div>
 
-          <p>{item.body}</p>
+          <ReactMarkdown
+            children={item.body}
+            linkTarget={"_blank"}
+            remarkPlugins={[remarkGfm]}
+          />
         </button>
       ))}
     </PostContainer>
