@@ -10,6 +10,8 @@ Nesse desafio, foi desenvolvido uma aplicação que utilizará da API do GitHub 
 - Listar e filtrar todas as issues do repositório com um pequeno resumo do conteúdo dela
 - Criar uma página para exibir um post (issue) completo
 
+site: https://github-blog-mauriani.netlify.app/
+
 ## 🖥️ Tecnologias usadadas
 
 - API GitHub
